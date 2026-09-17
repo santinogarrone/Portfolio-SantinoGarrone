@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #08070c;
+  color: #f3f0fa;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.page-frame {
+  width: calc(100% - 64px);
+  max-width: 1500px;
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .page-frame {
+    width: 100%;
+  }
+}
+
+::selection {
+  background: #7c3aed;
+  color: #fff;
+}
+
+/* fondo con glow radial sutil, fijo detrás de todo */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      560px 380px at 82% -8%,
+      rgba(168, 85, 247, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      420px 420px at -10% 40%,
+      rgba(124, 58, 237, 0.1),
+      transparent 60%
+    );
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-rise {
+  animation: rise 0.7s ease forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal-from-left {
+  transform: translateX(-48px);
+}
+.reveal-from-right {
+  transform: translateX(48px);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+.navbar-link {
+  position: relative;
+  padding: 7px 9px;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  right: 9px;
+  bottom: 1px;
+  left: 9px;
+  height: 1px;
+  background: #a855f7;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.7);
+  opacity: 0;
+  transform: scaleX(0.35);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+.navbar-link:hover {
+  color: #a855f7;
+  background-color: rgba(168, 85, 247, 0.08);
+}
+.navbar-link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* scrollbar propio para los visores de proyectos */
+.demo-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.demo-scroll::-webkit-scrollbar-track {
+  background: #100d18;
+}
+.demo-scroll::-webkit-scrollbar-thumb {
+  background: #4c1d95;
+}
+.demo-scroll::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* filas de habilidades: color de marca real al pasar el cursor */
+.skill-row {
+  --brand: #a855f7;
+}
+.skill-row .skill-icon-color {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.skill-row .skill-icon-mono {
+  transition: opacity 0.2s ease;
+}
+.skill-row .skill-name {
+  transition: color 0.2s ease;
+}
+.skill-row .skill-frame {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+.skill-row:hover .skill-icon-color {
+  opacity: 1;
+}
+.skill-row:hover .skill-icon-mono {
+  opacity: 0;
+}
+.skill-row:hover .skill-name {
+  color: var(--brand);
+}
+.skill-row:hover .skill-frame {
+  border-color: var(--brand);
+  background-color: color-mix(in srgb, var(--brand) 12%, transparent);
+}
