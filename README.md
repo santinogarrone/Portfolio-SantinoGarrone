@@ -31,4 +31,3 @@ Genera la carpeta `dist/` lista para subir a Vercel, Netlify, etc.
 ## Notas
 
 - Los proyectos sin `url` muestran un mock scrolleable de ejemplo — sustitúyelo por capturas o el iframe real en cuanto tengas el link.
-- Las fuentes se cargan desde Google Fonts en `index.html`.
