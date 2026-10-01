@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Abre http://localhost:5173
+Abre en: https://portfolio-santino-garrone.vercel.app/
 
 ## Build de producción
 
