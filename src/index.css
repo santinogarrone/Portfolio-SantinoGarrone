@@ -2,15 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+  --color-bg: 0 0 0;
+  --color-surface: 8 10 12;
+  --color-surface-2: 15 18 22;
+  --color-line: 40 48 54;
+  --color-accent: 0 210 255;
+  --color-accent-strong: 0 183 230;
+  --color-accent-dim: 0 108 142;
+  --color-ink: 238 245 248;
+  --color-ink-dim: 165 179 186;
+  --color-ink-faint: 112 128 136;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: #08070c;
-  color: #f3f0fa;
+  background: rgb(var(--color-bg));
+  color: rgb(var(--color-ink));
+  font-family: "Space Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.text-violet,
+.hover\:text-violet:hover,
+.navbar-link:hover,
+.skill-row:hover .skill-name {
+  text-shadow:
+    0 0 9px rgb(var(--color-accent) / 0.55),
+    0 0 20px rgb(var(--color-accent) / 0.24);
 }
 
 .page-frame {
@@ -26,8 +53,8 @@ body {
 }
 
 ::selection {
-  background: #7c3aed;
-  color: #fff;
+  background: rgb(var(--color-accent-strong));
+  color: rgb(var(--color-bg));
 }
 
 /* fondo con glow radial sutil, fijo detrás de todo */
@@ -39,12 +66,12 @@ body {
   background:
     radial-gradient(
       560px 380px at 82% -8%,
-      rgba(168, 85, 247, 0.16),
+      rgb(var(--color-accent) / 0.14),
       transparent 60%
     ),
     radial-gradient(
       420px 420px at -10% 40%,
-      rgba(124, 58, 237, 0.1),
+      rgb(var(--color-accent-strong) / 0.08),
       transparent 60%
     );
 }
@@ -61,6 +88,22 @@ body {
 }
 .animate-rise {
   animation: rise 0.7s ease forwards;
+}
+
+@keyframes typewriter-caret {
+  50% {
+    opacity: 0;
+  }
+}
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  vertical-align: -0.12em;
+  background: rgb(var(--color-accent));
+  box-shadow: 0 0 9px rgb(var(--color-accent) / 0.8);
+  animation: typewriter-caret 1s steps(1, end) infinite;
 }
 
 .reveal {
@@ -84,6 +127,9 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .typewriter-cursor {
+    animation: none;
   }
 }
 
@@ -114,8 +160,8 @@ body {
   bottom: 1px;
   left: 9px;
   height: 1px;
-  background: #a855f7;
-  box-shadow: 0 0 8px rgba(168, 85, 247, 0.7);
+  background: rgb(var(--color-accent));
+  box-shadow: 0 0 8px rgb(var(--color-accent) / 0.7);
   opacity: 0;
   transform: scaleX(0.35);
   transition:
@@ -123,8 +169,8 @@ body {
     transform 0.2s ease;
 }
 .navbar-link:hover {
-  color: #a855f7;
-  background-color: rgba(168, 85, 247, 0.08);
+  color: rgb(var(--color-accent));
+  background-color: rgb(var(--color-accent) / 0.08);
 }
 .navbar-link:hover::after {
   opacity: 1;
@@ -136,39 +182,33 @@ body {
   width: 10px;
 }
 .demo-scroll::-webkit-scrollbar-track {
-  background: #100d18;
+  background: rgb(var(--color-surface));
 }
 .demo-scroll::-webkit-scrollbar-thumb {
-  background: #4c1d95;
+  background: rgb(var(--color-accent-dim));
 }
 .demo-scroll::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed;
+  background: rgb(var(--color-accent-strong));
 }
 
 /* filas de habilidades: color de marca real al pasar el cursor */
 .skill-row {
-  --brand: #a855f7;
-}
-.skill-row .skill-icon-color {
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  --brand: rgb(var(--color-accent));
 }
 .skill-row .skill-icon-mono {
-  transition: opacity 0.2s ease;
+  transition: transform 0.2s ease;
 }
-.skill-row .skill-name {
-  transition: color 0.2s ease;
+.skill-row .skill-icon-celeste {
+  filter: brightness(0) saturate(100%) invert(68%) sepia(94%) saturate(2075%)
+    hue-rotate(157deg) brightness(104%) contrast(102%);
 }
 .skill-row .skill-frame {
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease;
 }
-.skill-row:hover .skill-icon-color {
-  opacity: 1;
-}
 .skill-row:hover .skill-icon-mono {
-  opacity: 0;
+  transform: scale(1.08);
 }
 .skill-row:hover .skill-name {
   color: var(--brand);

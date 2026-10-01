@@ -29,7 +29,7 @@ const proyectos = [
 
 function MockPreview() {
   return (
-    <div className="demo-scroll h-full overflow-y-auto bg-[#0c0a13]">
+    <div className="demo-scroll h-full overflow-y-auto bg-bg">
       <div className="h-[220px] flex items-center px-8 bg-gradient-to-br from-surface2 to-bg border-b border-line">
         <div>
           <div className="h-3 w-40 bg-violet/30 mb-3" />
@@ -86,7 +86,7 @@ function ProjectDemo({ p }) {
       </div>
 
       <div className="p-6">
-        <h4 className="font-disp font-medium text-2xl">{p.title}</h4>
+        <h4 className="font-ui font-medium text-2xl">{p.title}</h4>
         <p className="text-inkdim text-[13.5px] mt-2">{p.desc}</p>
       </div>
     </div>
@@ -98,17 +98,14 @@ export default function Proyectos() {
     <section id="proyectos" className="py-24 border-t border-line">
       <div className="flex justify-between items-end mb-14 gap-6 flex-wrap">
         <div>
-          <div className="font-mono text-[13px] text-violet">
-            02 — proyectos
-          </div>
+          <div className="font-ui text-[17px] text-violet">02 — proyectos</div>
           <h2 className="font-disp font-semibold text-[26px] sm:text-[38px] mt-2 max-w-[520px]">
             Trabajos recientes.
           </h2>
+          <p className="text-inkdim text-xs sm:text-[14.5px] mt-3 whitespace-nowrap">
+            Demo navegable de cada proyecto, con scroll interno.
+          </p>
         </div>
-        <p className="text-inkdim max-w-[340px] text-[14.5px]">
-          Demo navegable de cada proyecto. Scrollea dentro del recuadro para ver
-          el sitio completo.
-        </p>
       </div>
 
       <div className="grid grid-cols-1 gap-8">

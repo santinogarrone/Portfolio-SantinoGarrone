@@ -17,7 +17,7 @@ export default function Contacto() {
           href="mailto:mlsolutions@gmail.com"
           className="font-mono text-sm text-bg bg-violet px-6 py-4 border border-violet whitespace-nowrap font-medium hover:bg-transparent hover:text-violet transition-colors"
         >
-          mlsolutions@gmail.com
+          santinogarronegg@gmail.com
         </a>
       </div>
     </section>
