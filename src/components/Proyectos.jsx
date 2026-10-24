@@ -12,11 +12,11 @@ const proyectos = [
     desc: "Página web para cliente con función personal, muestra de servicios y contacto.",
   },
   {
-    cat: "sistema",
-    year: "2025",
-    title: "Estudio de abogados.",
-    desc: "Página web profesional, aplicada a un estudio de abogados.",
-    url: "",
+    cat: "web",
+    year: "2026",
+    title: "Web de juegos.",
+    desc: "Página web de variados juegos",
+    url: "https://pikora-eight.vercel.app/",
   },
   {
     cat: "web",
